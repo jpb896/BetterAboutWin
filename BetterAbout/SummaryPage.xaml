@@ -23,17 +23,34 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Image HorizontalAlignment="Center" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"/>
-        <TextBlock Style="{StaticResource TitleTextBlockStyle}" TextAlignment="Center" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">DEVICE NAME</TextBlock>
-        <TextBlock Style="{StaticResource SubtitleTextBlockStyle}" TextAlignment="Center" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">OS DEVICE NAME</TextBlock>
+        <Grid
+            Grid.Row="0"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Margin="15,0,0,0"
+            HorizontalAlignment="Center">
+            <Image
+            x:Name="Wallpaper"
+            Height="105"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Stretch="Uniform" />
+            <Image
+            Height="128"
+            VerticalAlignment="Top"
+            Source="/Assets/monitor.png"
+            Stretch="Uniform" />
+        </Grid>
+        <TextBlock x:Name="DeviceName" Style="{StaticResource TitleTextBlockStyle}" TextAlignment="Center" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">DEVICE NAME</TextBlock>
+        <TextBlock x:Name="OSDeviceName" Style="{StaticResource SubtitleTextBlockStyle}" TextAlignment="Center" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">OS DEVICE NAME</TextBlock>
         <TextBlock Grid.Row="3" Grid.Column="0" Style="{StaticResource BodyStrongTextBlockStyle}">CPU</TextBlock>
         <TextBlock Grid.Row="4" Grid.Column="0" Style="{StaticResource BodyStrongTextBlockStyle}">Memory</TextBlock>
         <TextBlock Grid.Row="5" Grid.Column="0" Style="{StaticResource BodyStrongTextBlockStyle}">GPU</TextBlock>
         <TextBlock Grid.Row="6" Grid.Column="0" Style="{StaticResource BodyStrongTextBlockStyle}">Storage</TextBlock>
-        <TextBlock Grid.Row="3" Grid.Column="1">CPU</TextBlock>
-        <TextBlock Grid.Row="4" Grid.Column="1">Memory</TextBlock>
-        <TextBlock Grid.Row="5" Grid.Column="1">GPU</TextBlock>
-        <TextBlock Grid.Row="6" Grid.Column="1">Storage</TextBlock>
-        <Button Style="{ThemeResource AccentButtonStyle}" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">More info</Button>
+        <TextBlock x:Name="Processor" Grid.Row="3" Grid.Column="1">CPU</TextBlock>
+        <TextBlock x:Name="Memory" Grid.Row="4" Grid.Column="1">Memory</TextBlock>
+        <TextBlock x:Name="Graphics" Grid.Row="5" Grid.Column="1">GPU</TextBlock>
+        <TextBlock x:Name="Storage" Grid.Row="6" Grid.Column="1">Storage</TextBlock>
+        <Button x:Name="FullViewOpenButton" Style="{ThemeResource AccentButtonStyle}" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">More info</Button>
     </Grid>
 </Page>
