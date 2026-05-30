@@ -15,6 +15,7 @@
 	<PackageType>None</PackageType>
 	<WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
 	<SelfContained>true</SelfContained>
+	<PublishAot>true</PublishAot>
   </PropertyGroup>
   <ItemGroup>
     <None Remove="SummaryPage.xaml" />
