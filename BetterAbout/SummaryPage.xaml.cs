@@ -51,6 +51,7 @@ namespace BetterAbout
             {
                 Memory.Text = MemoryInterface.GetRAMAmount();
             }
+            Storage.Text = StorageInterface.GetTotalSize();
         }
 
         private static string GetWallpaperPath()
