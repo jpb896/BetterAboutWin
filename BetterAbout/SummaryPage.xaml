@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="BetterAbout.SummaryPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BetterAbout"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch">
+            <TextBlock Style="{StaticResource HeaderTextBlockStyle}">DEVICE NAME</TextBlock>
+            <TextBlock Style="{StaticResource SubheaderTextBlockStyle}">2026</TextBlock>
+            <TextBlock>CPU</TextBlock>
+            <TextBlock>Memory</TextBlock>
+            <TextBlock>Graphics</TextBlock>
+            <Button Style="{ThemeResource AccentButtonStyle}">More info</Button>
+        </StackPanel>
+    </Grid>
+</Page>

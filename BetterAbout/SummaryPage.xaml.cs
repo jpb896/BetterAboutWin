@@ -19,15 +19,13 @@ using Windows.Foundation.Collections;
 namespace BetterAbout
 {
     /// <summary>
-    /// An empty window that can be used on its own or navigated to within a Frame.
+    /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MainWindow : Window
+    public sealed partial class SummaryPage : Page
     {
-        public MainWindow()
+        public SummaryPage()
         {
             InitializeComponent();
-            contentFrame.Content = new SummaryPage();
-
         }
     }
 }

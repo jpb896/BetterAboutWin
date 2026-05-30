@@ -13,7 +13,7 @@
         <MicaBackdrop />
     </Window.SystemBackdrop>
 
-    <Grid>
-
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Frame x:Name="contentFrame"/>
     </Grid>
 </Window>
