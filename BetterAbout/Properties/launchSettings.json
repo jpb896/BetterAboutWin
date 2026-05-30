@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "BetterAbout (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "BetterAbout (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
