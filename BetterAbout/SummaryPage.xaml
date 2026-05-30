@@ -9,7 +9,7 @@
     mc:Ignorable="d">
 
     <Grid>
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch">
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock Style="{StaticResource TitleTextBlockStyle}">DEVICE NAME</TextBlock>
             <TextBlock Style="{StaticResource SubtitleTextBlockStyle}">2026</TextBlock>
             <TextBlock>CPU</TextBlock>
