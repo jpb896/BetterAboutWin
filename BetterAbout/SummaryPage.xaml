@@ -10,8 +10,8 @@
 
     <Grid>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch">
-            <TextBlock Style="{StaticResource HeaderTextBlockStyle}">DEVICE NAME</TextBlock>
-            <TextBlock Style="{StaticResource SubheaderTextBlockStyle}">2026</TextBlock>
+            <TextBlock Style="{StaticResource TitleTextBlockStyle}">DEVICE NAME</TextBlock>
+            <TextBlock Style="{StaticResource SubtitleTextBlockStyle}">2026</TextBlock>
             <TextBlock>CPU</TextBlock>
             <TextBlock>Memory</TextBlock>
             <TextBlock>Graphics</TextBlock>
