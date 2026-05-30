@@ -3,6 +3,7 @@ using Microsoft.UI.Xaml.Media.Imaging;
 using Microsoft.Win32;
 using System;
 using System.IO;
+using System.Management;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -16,8 +17,32 @@ namespace BetterAbout
     {
         public SummaryPage()
         {
+            var manufacturer = (string)Registry.LocalMachine.OpenSubKey("HARDWARE\\DESCRIPTION\\System\\BIOS").GetValue("SystemManufacturer");
+            var model = (string)Registry.LocalMachine.OpenSubKey("HARDWARE\\DESCRIPTION\\System\\BIOS").GetValue("SystemProductName");
+            var osdevname = System.Environment.MachineName;
+
             InitializeComponent();
+            DeviceName.Text = model;
+            OSDeviceName.Text = osdevname;
             Wallpaper.Source = new BitmapImage(new Uri(GetWallpaperPath()));
+            ManagementObjectSearcher ProcessorObject = new ManagementObjectSearcher("select * from Win32_Processor");
+            var RamType = MemoryInterface.RamType;
+            foreach (ManagementObject obj in ProcessorObject.Get())
+            {
+                var CPUModel = (string)obj["Name"];
+                CPUModel =
+                CPUModel
+               .Replace("(TM)", "™")
+               .Replace("(tm)", "™")
+               .Replace("(R)", "®")
+               .Replace("(r)", "®")
+               .Replace("(C)", "©")
+               .Replace("(c)", "©")
+               .Replace("    ", " ")
+               .Replace("  ", " ");
+                Processor.Text = CPUModel;
+            }
+            Memory.Text = MemoryInterface.GetRAMAmount() + " " + RamType;
         }
 
         private string GetWallpaperPath()
