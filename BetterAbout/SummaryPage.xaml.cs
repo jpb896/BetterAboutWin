@@ -42,7 +42,14 @@ namespace BetterAbout
                .Replace("  ", " ");
                 Processor.Text = CPUModel;
             }
-            Memory.Text = MemoryInterface.GetRAMAmount() + " " + RamType;
+            if (RamType != "Unknown") 
+            {
+                Memory.Text = MemoryInterface.GetRAMAmount() + " " + RamType;
+            }
+            else
+            {
+                Memory.Text = MemoryInterface.GetRAMAmount();
+            }
         }
 
         private string GetWallpaperPath()
