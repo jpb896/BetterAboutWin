@@ -51,6 +51,6 @@
         <TextBlock x:Name="Memory" Grid.Row="4" Grid.Column="1">Memory</TextBlock>
         <TextBlock x:Name="Graphics" Grid.Row="5" Grid.Column="1">GPU</TextBlock>
         <TextBlock x:Name="Storage" Grid.Row="6" Grid.Column="1">Storage</TextBlock>
-        <Button x:Name="FullViewOpenButton" Style="{ThemeResource AccentButtonStyle}" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">More info</Button>
+        <Button x:Name="FullViewOpenButton" Style="{ThemeResource AccentButtonStyle}" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Click="FullViewOpenButton_Click">More info</Button>
     </Grid>
 </Page>

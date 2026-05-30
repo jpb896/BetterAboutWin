@@ -76,5 +76,11 @@ namespace BetterAbout
             }
             return desktopPath;
         }
+
+        private void FullViewOpenButton_Click(object sender, Microsoft.UI.Xaml.RoutedEventArgs e)
+        {
+            Frame? frame = this.Parent as Frame;
+            frame.Navigate(typeof(MainPage));
+        }
     }
 }

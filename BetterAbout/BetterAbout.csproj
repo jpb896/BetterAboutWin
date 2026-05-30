@@ -16,6 +16,7 @@
 		<PublishAot>true</PublishAot>
 	</PropertyGroup>
   <ItemGroup>
+    <None Remove="MainPage.xaml" />
     <None Remove="SummaryPage.xaml" />
   </ItemGroup>
 
@@ -46,6 +47,11 @@
     <PackageReference Include="Microsoft.WindowsAppSDK" Version="2.1.4-experimental8" />
     <PackageReference Include="System.Management" Version="10.0.8" />
     <PackageReference Include="WinUIEx" Version="2.9.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="SummaryPage.xaml">
