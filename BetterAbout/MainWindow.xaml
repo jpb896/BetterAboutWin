@@ -9,8 +9,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Title="BetterAbout"
-    Width="520"
-    Height="740">
+    Width="360"
+    Height="480">
 
     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <Frame x:Name="contentFrame"/>
