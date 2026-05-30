@@ -3,6 +3,7 @@ using Microsoft.UI.Xaml.Media.Imaging;
 using Microsoft.Win32;
 using System;
 using System.IO;
+using System.Linq;
 using System.Management;
 
 // To learn more about WinUI, the WinUI project structure,
@@ -25,9 +26,9 @@ namespace BetterAbout
             DeviceName.Text = model;
             OSDeviceName.Text = osdevname;
             Wallpaper.Source = new BitmapImage(new Uri(GetWallpaperPath()));
-            ManagementObjectSearcher ProcessorObject = new ManagementObjectSearcher("select * from Win32_Processor");
+            ManagementObjectSearcher ProcessorObject = new("select * from Win32_Processor");
             var RamType = MemoryInterface.RamType;
-            foreach (ManagementObject obj in ProcessorObject.Get())
+            foreach (ManagementObject obj in ProcessorObject.Get().Cast<ManagementObject>())
             {
                 var CPUModel = (string)obj["Name"];
                 CPUModel =
@@ -52,19 +53,19 @@ namespace BetterAbout
             }
         }
 
-        private string GetWallpaperPath()
+        private static string GetWallpaperPath()
         {
-            string desktopPath = "";
+            string desktopPath;
             RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Control Panel\Desktop");
             string wallpaper = key.GetValue("Wallpaper").ToString();
 
-            if (wallpaper.StartsWith("~"))
+            if (wallpaper.StartsWith('~'))
             {
-                desktopPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Windows), @"Web\Wallpaper\Windows", wallpaper.Substring(1));
+                desktopPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Windows), @"Web\Wallpaper\Windows", wallpaper[1..]);
             }
-            else if (wallpaper.StartsWith("%"))
+            else if (wallpaper.StartsWith('%'))
             {
-                string[] slides = wallpaper.Substring(1).Split(',');
+                string[] slides = wallpaper[1..].Split(',');
                 desktopPath = slides[0].Trim();
             }
             else

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Management;
 
 namespace BetterAbout
@@ -11,13 +12,15 @@ namespace BetterAbout
             {
                 int type = 0;
 
-                ConnectionOptions connection = new ConnectionOptions();
-                connection.Impersonation = ImpersonationLevel.Impersonate;
-                ManagementScope scope = new ManagementScope("\\\\.\\root\\CIMV2", connection);
+                ConnectionOptions connection = new()
+                {
+                    Impersonation = ImpersonationLevel.Impersonate
+                };
+                ManagementScope scope = new("\\\\.\\root\\CIMV2", connection);
                 scope.Connect();
-                ObjectQuery query = new ObjectQuery("SELECT * FROM Win32_PhysicalMemory");
-                ManagementObjectSearcher searcher = new ManagementObjectSearcher(scope, query);
-                foreach (ManagementObject queryObj in searcher.Get())
+                ObjectQuery query = new("SELECT * FROM Win32_PhysicalMemory");
+                ManagementObjectSearcher searcher = new(scope, query);
+                foreach (ManagementObject queryObj in searcher.Get().Cast<ManagementObject>())
                 {
                     type = Convert.ToInt32(queryObj["MemoryType"]);
                 }
@@ -28,57 +31,53 @@ namespace BetterAbout
 
         private static string TypeString(int type)
         {
-            string outValue = string.Empty;
-
-            switch (type)
+            string outValue = type switch
             {
-                case 0x0: outValue = "Unknown"; break;
-                case 0x1: outValue = "Other"; break;
-                case 0x2: outValue = "DRAM"; break;
-                case 0x3: outValue = "Synchronous DRAM"; break;
-                case 0x4: outValue = "Cache DRAM"; break;
-                case 0x5: outValue = "EDO"; break;
-                case 0x6: outValue = "EDRAM"; break;
-                case 0x7: outValue = "VRAM"; break;
-                case 0x8: outValue = "SRAM"; break;
-                case 0x9: outValue = "RAM"; break;
-                case 0xa: outValue = "ROM"; break;
-                case 0xb: outValue = "Flash"; break;
-                case 0xc: outValue = "EEPROM"; break;
-                case 0xd: outValue = "FEPROM"; break;
-                case 0xe: outValue = "EPROM"; break;
-                case 0xf: outValue = "CDRAM"; break;
-                case 0x10: outValue = "3DRAM"; break;
-                case 0x11: outValue = "SDRAM"; break;
-                case 0x12: outValue = "SGRAM"; break;
-                case 0x13: outValue = "RDRAM"; break;
-                case 0x14: outValue = "DDR"; break;
-                case 0x15: outValue = "DDR2"; break;
-                case 0x16: outValue = "DDR2 FB-DIMM"; break;
-                case 0x17: outValue = "Undefined 23"; break;
-                case 0x18: outValue = "DDR3"; break;
-                case 0x19: outValue = "FBD2"; break;
-                case 0x20: outValue = "DDR4"; break;
-                default: outValue = "Undefined"; break;
-            }
-
+                0x0 => "Unknown",
+                0x1 => "Other",
+                0x2 => "DRAM",
+                0x3 => "Synchronous DRAM",
+                0x4 => "Cache DRAM",
+                0x5 => "EDO",
+                0x6 => "EDRAM",
+                0x7 => "VRAM",
+                0x8 => "SRAM",
+                0x9 => "RAM",
+                0xa => "ROM",
+                0xb => "Flash",
+                0xc => "EEPROM",
+                0xd => "FEPROM",
+                0xe => "EPROM",
+                0xf => "CDRAM",
+                0x10 => "3DRAM",
+                0x11 => "SDRAM",
+                0x12 => "SGRAM",
+                0x13 => "RDRAM",
+                0x14 => "DDR",
+                0x15 => "DDR2",
+                0x16 => "DDR2 FB-DIMM",
+                0x17 => "Undefined 23",
+                0x18 => "DDR3",
+                0x19 => "FBD2",
+                0x20 => "DDR4",
+                _ => "Undefined",
+            };
             return outValue;
         }
 
         public static string GetRAMAmount()
         {
 
-            ObjectQuery objectQuery = new ObjectQuery("SELECT * FROM Win32_OperatingSystem");
+            ObjectQuery objectQuery = new("SELECT * FROM Win32_OperatingSystem");
             ManagementObjectSearcher managementObjectSearcher = new ManagementObjectSearcher(objectQuery);
             ManagementObjectCollection managementObjectCollection = managementObjectSearcher.Get();
             var amount = "";
-            foreach (ManagementObject managementObject in managementObjectCollection)
+            foreach (ManagementObject managementObject in managementObjectCollection.Cast<ManagementObject>())
             {
                 var MemorySize = (UInt64)managementObject["TotalVisibleMemorySize"] / 1000000;
                 amount = $"{MemorySize}GB RAM";
             }
             return amount;
         }
-
     }
 }
