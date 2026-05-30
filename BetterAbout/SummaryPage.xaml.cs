@@ -5,6 +5,7 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Management;
+using WinUIEx;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -80,6 +81,8 @@ namespace BetterAbout
         private void FullViewOpenButton_Click(object sender, Microsoft.UI.Xaml.RoutedEventArgs e)
         {
             Frame? frame = this.Parent as Frame;
+            App.window.Height = 480;
+            App.window.Width = 720;
             frame.Navigate(typeof(MainPage));
         }
     }
