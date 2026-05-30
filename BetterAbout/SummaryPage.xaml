@@ -8,14 +8,27 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid>
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock Style="{StaticResource TitleTextBlockStyle}">DEVICE NAME</TextBlock>
-            <TextBlock Style="{StaticResource SubtitleTextBlockStyle}">2026</TextBlock>
-            <TextBlock>CPU</TextBlock>
-            <TextBlock>Memory</TextBlock>
-            <TextBlock>Graphics</TextBlock>
-            <Button Style="{ThemeResource AccentButtonStyle}">More info</Button>
-        </StackPanel>
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Stretch" RowSpacing="8" ColumnSpacing="16">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock Style="{StaticResource TitleTextBlockStyle}" TextAlignment="Center" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">DEVICE NAME</TextBlock>
+        <TextBlock Style="{StaticResource SubtitleTextBlockStyle}" TextAlignment="Center" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">2026</TextBlock>
+        <TextBlock Grid.Row="3" Grid.Column="0" Style="{StaticResource BodyStrongTextBlockStyle}">CPU</TextBlock>
+        <TextBlock Grid.Row="4" Grid.Column="0" Style="{StaticResource BodyStrongTextBlockStyle}">Memory</TextBlock>
+        <TextBlock Grid.Row="5" Grid.Column="0" Style="{StaticResource BodyStrongTextBlockStyle}">GPU</TextBlock>
+        <TextBlock Grid.Row="6" Grid.Column="0" Style="{StaticResource BodyStrongTextBlockStyle}">Storage</TextBlock>
+            <Button Style="{ThemeResource AccentButtonStyle}" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2">More info</Button>
     </Grid>
 </Page>
