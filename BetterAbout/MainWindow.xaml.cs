@@ -1,3 +1,4 @@
+using Microsoft.UI.Composition.SystemBackdrops;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
@@ -27,6 +28,11 @@ namespace BetterAbout
         {
             InitializeComponent();
             contentFrame.Content = new SummaryPage();
+            MicaBackdrop micaAlt = new()
+            {
+                Kind = MicaKind.BaseAlt
+            };
+            SystemBackdrop = micaAlt;
 
         }
     }

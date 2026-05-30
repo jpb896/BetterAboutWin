@@ -9,10 +9,6 @@
     mc:Ignorable="d"
     Title="BetterAbout">
 
-    <Window.SystemBackdrop>
-        <MicaBackdrop />
-    </Window.SystemBackdrop>
-
     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <Frame x:Name="contentFrame"/>
     </Grid>
