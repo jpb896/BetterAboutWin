@@ -12,7 +12,9 @@
     <WinUISDKReferences>false</WinUISDKReferences>
     <EnableMsixTooling>true</EnableMsixTooling>
     <Nullable>enable</Nullable>
-	  <PackageType>None</PackageType>
+	<PackageType>None</PackageType>
+	<WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
+	<SelfContained>true</SelfContained>
   </PropertyGroup>
   <ItemGroup>
     <None Remove="SummaryPage.xaml" />
